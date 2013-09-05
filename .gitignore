@@ -1,2 +1,4 @@
 mrjob.yml
 jobs/*.pyc
+.DS_Store
+*/.DS_Store
