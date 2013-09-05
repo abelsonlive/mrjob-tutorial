@@ -1,0 +1,26 @@
+# Brian's simple .mrjob.conf file
+# place this in ~/
+runners:
+    hadoop:
+        jobconf:
+            maprecduce.task.timeout: 600000000
+            stream.non.zero.exit.is.failure: false
+    emr:
+        aws_access_key_id: KEY
+        aws_secret_access_key: KEY
+        ec2_key_pair: my_key_pair
+        ec2_key_pair_file: ~/.ssh/my_key_pair.pem
+        ssh_tunnel_to_job_tracker: true
+        ec2_core_instance_bid_price: 0.20
+        ec2_task_instance_bid_price: 0.20
+        aws_region: us-east-1
+        ec2_instance_type: c1.xlarge
+        num_ec2_instances: 5
+        s3_log_uri: s3://my-bucket/emr/tmp/logs/
+        s3_scratch_uri: s3://my-bucket/emr/tmp/
+        bootstrap_python_packages:
+        - packages/*.tar.gz
+        ami_version: latest
+        cmdenv:
+          TZ: America/New_York
+
